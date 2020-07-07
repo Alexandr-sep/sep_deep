@@ -29,16 +29,25 @@
                     @foreach ($tasks as $task)
                         <tr>
                             <!-- Имя задачи -->
-                            <td class="table-text">
+                            <td class="table-text col-sm-8">
                                 <div>{{ $task->name }}</div>
                             </td>
 
-                            <td>
+                            <td class="col-sm-1">
                                 <form action="{{route('tasks.destroy', $task->id)}}" method="POST">
                                     {{ method_field('DELETE') }}
                                     {{ csrf_field() }}
                                     <button class="btn btn-danger">
                                         <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                            <td class="col-sm-1">
+                                <form action="{{route('tasks.edit', $task->id)}}" method="POST">
+                                    {{ method_field('GET') }}}
+                                    {{ csrf_field() }}
+                                    <button class="btn btn-warning">
+                                        <i class="fa fa-pencil-square-o"></i>
                                     </button>
                                 </form>
                             </td>
