@@ -88,25 +88,14 @@ class TaskController extends Controller
      * @param  Task $task
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request, Task $task)
+    public function update(Task $tasks, Request $request)
     {
         $this->validate($request, [
             'name' => 'required|max:255',
         ]);
 
-//        $this->authorize('update', $task);
-
-        $task = Task::find($id);
-        $task->name = $request->name;
-        $task->save();
-
-//        $this->user
-//            ->task()
-//            ->save(
-//                [
-//                    'name' => $request->name,
-//                ]
-//            );
+        $tasks->name = $request->name;
+        $tasks->save();
 
         return redirect()->route('tasks.index');
     }
