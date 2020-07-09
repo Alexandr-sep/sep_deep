@@ -14,7 +14,7 @@
 
         <!-- Имя задачи -->
             <div class="form-group">
-                <label for="task" class="col-sm-3 control-label">Задача</label>
+                <label for="task" class="col-sm-3 control-label">{{ trans('create.task') }}</label>
 
                 <div class="col-sm-6">
                     <input type="text" name="name" id="task-name" class="form-control">
@@ -24,9 +24,11 @@
             <!-- Кнопка добавления задачи -->
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
-                    <button type="submit" class="btn btn-default">
-                        <i class="fa fa-plus"></i> Добавить задачу
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-plus"></i> {{ trans('create.add_task') }}
                     </button>
+
+                    <a href="{{ route('tasks.index') }}" class="btn btn-danger"><i class="fa fa-ban"></i> {{ trans('create.cancel') }}</a>
                 </div>
             </div>
         </form>
