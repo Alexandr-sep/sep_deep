@@ -6,11 +6,11 @@
 
     <div class="panel-body">
     <!-- Текущие задачи -->
-    <a href="{{ route('tasks.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> Новая задача</a>
+    <a href="{{ route('tasks.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> {{ trans('tasks.new_task') }}</a>
     @if (count($tasks) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
-                Текущие задачи
+                {{ trans('tasks.current_tasks') }}
             </div>
 
             <div class="panel-body">
@@ -19,8 +19,8 @@
                     <!-- Заголовок таблицы -->
                     <thead>
                     <tr>
-                        <th>Название</th>
-                        <th>Действие</th>
+                        <th>{{ trans('tasks.title') }}</th>
+                        <th>{{ trans('tasks.action') }}</th>
                     </tr>
                     </thead>
 
@@ -29,7 +29,7 @@
                     @foreach ($tasks as $task)
                         <tr>
                             <!-- Имя задачи -->
-                            <td class="table-text col-sm-8">
+                            <td class="table-text col-sm-10">
                                 <div>{{ $task->name }}</div>
                             </td>
 
@@ -44,7 +44,7 @@
                             </td>
                             <td class="col-sm-1">
                                 <form action="{{route('tasks.edit', $task->id)}}" method="POST">
-                                    {{ method_field('GET') }}}
+                                    {{ method_field('GET') }}
                                     {{ csrf_field() }}
                                     <button class="btn btn-warning">
                                         <i class="fa fa-pencil-square-o"></i>
